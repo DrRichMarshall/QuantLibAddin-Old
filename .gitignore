@@ -1,5 +1,6 @@
 # Compilation artifacts
 QuantLib/
+QuantLib_bad/
 ObjectHandler/Docs/auto.pages/
 ObjectHandler/build/
 ObjectHandler/gensrc/build/
@@ -107,3 +108,4 @@ QuantLibAddin/Docs/doxywarnings.txt
 QuantLibXL/Docs/*.chm
 QuantLibXL/Docs/doxywarnings.txt
 
+/QuantLibXL/.vs/QuantLibXL_full/v15
