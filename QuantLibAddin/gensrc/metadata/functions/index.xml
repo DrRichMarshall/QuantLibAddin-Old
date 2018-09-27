@@ -6,6 +6,7 @@
     <include>qlo/indexes/bmaindex.hpp</include>
     <include>qlo/indexes/ibor/euribor.hpp</include>
     <include>qlo/indexes/ibor/libor.hpp</include>
+    <include>qlo/indexes/ibor/non_libor.hpp</include>in
     <include>qlo/indexes/swap/euriborswap.hpp</include>
     <include>qlo/indexes/swap/liborswap.hpp</include>
     <include>qlo/indexes/swap/isdafixaswap.hpp</include>
@@ -19,6 +20,7 @@
     <include>qlo/indexes/bmaindex.hpp</include>
     <include>qlo/indexes/ibor/euribor.hpp</include>
     <include>qlo/indexes/ibor/libor.hpp</include>
+    <include>qlo/indexes/ibor/non_libor.hpp</include>
     <include>qlo/indexes/swap/euriborswap.hpp</include>
     <include>qlo/indexes/swap/liborswap.hpp</include>
     <include>qlo/indexes/swap/isdafixaswap.hpp</include>
@@ -36,6 +38,7 @@
     Copyright (C) 2006 Katiuscia Manzoni
     Copyright (C) 2005, 2007 Eric Ehlers
     Copyright (C) 2005 Plamen Neykov
+    Copyright (C) 2018 Richard Marshall
   </copyright>
   <Functions>
 
@@ -515,6 +518,84 @@
       </ParameterList>
     </Constructor>
 
+    <Constructor name='qlBbsw'>
+      <libraryFunction>Bbsw</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Tenor' exampleValue='6M'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>index tenor: 1M, 2M, 3M, 4M, 5M, 6M.</description>
+          </Parameter>
+          <Parameter name='YieldCurve' exampleValue='AUDYC' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlBkbm'>
+      <libraryFunction>Bkbm</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Tenor' exampleValue='6M'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>index tenor: 1M, 2M, 3M, 4M, 5M, 6M.</description>
+          </Parameter>
+          <Parameter name='YieldCurve' exampleValue='NZDYC' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlCdor'>
+      <libraryFunction>Cdor</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Tenor' exampleValue='6M'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>index tenor: 1M, 2M, 3M, 6M, 12M (1Y).</description>
+          </Parameter>
+          <Parameter name='YieldCurve' exampleValue='CADYC' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
     <Constructor name='qlEuribor'>
       <libraryFunction>Euribor</libraryFunction>
       <SupportedPlatforms>
@@ -619,6 +700,96 @@
       </ParameterList>
     </Constructor>
 
+    <Constructor name='qlTibor'>
+      <description>Domestic libor like, a/365 index - "Yen Tibor".</description>
+      <libraryFunction>Tibor</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Tenor' exampleValue='6M'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>index tenor: 1W, 1M, 3M, 6M, 12M (1Y).</description>
+          </Parameter>
+          <Parameter name='YieldCurve' exampleValue='JPYYC' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlAonia'>
+      <libraryFunction>Aonia</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='YieldCurve' exampleValue='AUDYC' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlFedFunds'>
+      <libraryFunction>FedFunds</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='YieldCurve' exampleValue='USDYC' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlNzOcr'>
+      <libraryFunction>Nzocr</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='YieldCurve' exampleValue='NZDYC' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+    
     <Constructor name='qlSonia'>
       <libraryFunction>Sonia</libraryFunction>
       <SupportedPlatforms>

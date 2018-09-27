@@ -849,6 +849,9 @@
     <ClCompile Include="qlo\calibrationhelpers.cpp">
       <Filter>ShortRateModels</Filter>
     </ClCompile>
+    <ClCompile Include="qlo\indexes\ibor\non_libor.cpp">
+      <Filter>indexes\ibor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qlo\enumerations\register\register_all.hpp">
@@ -1747,6 +1750,9 @@
     </ClInclude>
     <ClInclude Include="qlo\calibrationhelpers.hpp">
       <Filter>ShortRateModels</Filter>
+    </ClInclude>
+    <ClInclude Include="qlo\indexes\ibor\non_libor.hpp">
+      <Filter>indexes\ibor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

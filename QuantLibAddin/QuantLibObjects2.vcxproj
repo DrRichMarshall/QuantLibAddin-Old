@@ -453,6 +453,7 @@
     <ClCompile Include="qlo\enumerations\constructors\enumeratedclasses.cpp" />
     <ClCompile Include="qlo\enumerations\constructors\enumeratedpairs.cpp" />
     <ClCompile Include="qlo\enumerations\factories\calendarfactory.cpp" />
+    <ClCompile Include="qlo\indexes\ibor\non_libor.cpp" />
     <ClCompile Include="qlo\serialization\create\create_calibrationhelpers.cpp" />
     <ClCompile Include="qlo\serialization\register\serialization_calibrationhelpers.cpp" />
     <ClCompile Include="qlo\valueobjects\vo_abcd.cpp" />
@@ -723,6 +724,7 @@
     <ClInclude Include="qlo\enumerations\factories\payoffsfactory.hpp" />
     <ClInclude Include="qlo\enumerations\factories\pricingenginesfactory.hpp" />
     <ClInclude Include="qlo\enumerations\factories\termstructuresfactory.hpp" />
+    <ClInclude Include="qlo\indexes\ibor\non_libor.hpp" />
     <ClInclude Include="qlo\models.hpp" />
     <ClInclude Include="qlo\serialization\create\create_calibrationhelpers.hpp" />
     <ClInclude Include="qlo\serialization\register\serialization_calibrationhelpers.hpp" />
