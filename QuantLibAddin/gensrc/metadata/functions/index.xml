@@ -14,6 +14,7 @@
 
     <include>ql/termstructures/yieldtermstructure.hpp</include>
     <include>ql/indexes/iborindex.hpp</include>
+    <include>ql/indexes/inflationindex.hpp</include>
     <include>ql/experimental/coupons/proxyibor.hpp</include>
   </serializationIncludes>
   <addinIncludes>
@@ -30,6 +31,7 @@
 
     <include>ql/termstructures/yieldtermstructure.hpp</include>
     <include>ql/indexes/iborindex.hpp</include>
+    <include>ql/indexes/inflationindex.hpp</include>
     <include>ql/experimental/coupons/proxyibor.hpp</include>
     <include>ql/indexes/swapindex.hpp</include>
   </addinIncludes>
@@ -806,6 +808,126 @@
             <superType>libToHandle</superType>
             <tensorRank>scalar</tensorRank>
             <description>forecasting YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <!-- Inflation index interface -->
+
+    <Constructor name='qlZeroInflationIndex'>
+      <description>Builds a Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>ZeroInflationIndex</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='FamilyName' exampleValue='Euro hCPI'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation index family name.</description>
+          </Parameter>
+          <Parameter name='Region' exampleValue='US'>
+            <type>QuantLib::Region</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation region (Australia, France, UK, US, ZA).</description>
+          </Parameter>
+          <Parameter name='Revised' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the index is revised.</description>
+          </Parameter>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='Frequency' exampleValue='Monthly'>
+            <type>QuantLib::Frequency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation index publication frequency (NoFrequency, Once, Annual, Semiannual, EveryFourthMonth, Quarterly, Bimonthly, Monthly, EveryFourthWeek, Biweekly, Weekly, Daily, OtherFrequency).</description>
+          </Parameter>
+          <Parameter name='AvailabilitiyLag' exampleValue='1M'>
+            <type>QuantLib::Period</type>
+            <tensorRank>scalar</tensorRank>
+            <description>The time lag after which the inflation index is availabile.</description>
+          </Parameter>
+          <Parameter name='Currency' exampleValue='USD'>
+            <type>QuantLib::Currency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Index Currency.</description>
+          </Parameter>
+          <Parameter name='YieldCurve' exampleValue='USDIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlYoYInflationIndex'>
+      <libraryFunction>YoYInflationIndex</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='FamilyName' exampleValue='Euro hCPI'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation index family name.</description>
+          </Parameter>
+          <Parameter name='Region' exampleValue='US'>
+            <type>QuantLib::Region</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation region (Australia, France, UK, US, ZA).</description>
+          </Parameter>
+          <Parameter name='Revised' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the index is revised.</description>
+          </Parameter>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='Ratio' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>FALSE if it is a true index, TRUE if it is a fake index based on a ratio at different time points.</description>
+          </Parameter>
+          <Parameter name='Frequency' exampleValue='Monthly'>
+            <type>QuantLib::Frequency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation index publication frequency.(NoFrequency, Once, Annual, Semiannual, EveryFourthMonth, Quarterly, Bimonthly, Monthly, EveryFourthWeek, Biweekly, Weekly, Daily, OtherFrequency).</description>
+          </Parameter>
+          <Parameter name='AvailabilitiyLag' exampleValue='1M'>
+            <type>QuantLib::Period</type>
+            <tensorRank>scalar</tensorRank>
+            <description>The time lag after which the inflation index is availabile.</description>
+          </Parameter>
+          <Parameter name='Currency' exampleValue='USD'>
+            <type>QuantLib::Currency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Index Currency.</description>
+          </Parameter>
+          <Parameter name='YieldCurve' exampleValue='USDIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
           </Parameter>
         </Parameters>
       </ParameterList>

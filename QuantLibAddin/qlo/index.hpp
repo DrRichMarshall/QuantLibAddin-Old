@@ -5,6 +5,7 @@
  Copyright (C) 2006 Katiuscia Manzoni
  Copyright (C) 2005 Eric Ehlers
  Copyright (C) 2005 Plamen Neykov
+ Copyright (C) 2018 Richard Marshall
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -43,6 +44,10 @@ namespace QuantLibAddin {
         OH_LIB_CTOR(Index, QuantLib::Index);
     };
 
+	//! Base class for all rates indexes,
+//	OH_OBJ_CLASS(InterestRateIndex, Index);
+	//! Base class for all inflation indexes,
+	OH_OBJ_CLASS(InflationIndex, Index);
 }
 
 #endif

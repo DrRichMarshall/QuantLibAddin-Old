@@ -852,6 +852,9 @@
     <ClCompile Include="qlo\indexes\ibor\non_libor.cpp">
       <Filter>indexes\ibor</Filter>
     </ClCompile>
+    <ClCompile Include="qlo\indexes\inflationindex.cpp">
+      <Filter>indexes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qlo\enumerations\register\register_all.hpp">
@@ -1753,6 +1756,9 @@
     </ClInclude>
     <ClInclude Include="qlo\indexes\ibor\non_libor.hpp">
       <Filter>indexes\ibor</Filter>
+    </ClInclude>
+    <ClInclude Include="qlo\indexes\inflationindex.hpp">
+      <Filter>indexes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
