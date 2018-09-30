@@ -4,6 +4,7 @@
   <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
   <serializationIncludes>
     <include>qlo/indexes/bmaindex.hpp</include>
+    <include>qlo/indexes/inflationindex.hpp</include>
     <include>qlo/indexes/ibor/euribor.hpp</include>
     <include>qlo/indexes/ibor/libor.hpp</include>
     <include>qlo/indexes/ibor/non_libor.hpp</include>in
@@ -11,14 +12,17 @@
     <include>qlo/indexes/swap/liborswap.hpp</include>
     <include>qlo/indexes/swap/isdafixaswap.hpp</include>
     <include>qlo/termstructures.hpp</include>
+    <include>qlo/inflationtermstructure.hpp</include>
 
     <include>ql/termstructures/yieldtermstructure.hpp</include>
+    <include>ql/termstructures/inflationtermstructure.hpp</include>
     <include>ql/indexes/iborindex.hpp</include>
     <include>ql/indexes/inflationindex.hpp</include>
     <include>ql/experimental/coupons/proxyibor.hpp</include>
   </serializationIncludes>
   <addinIncludes>
     <include>qlo/indexes/bmaindex.hpp</include>
+    <include>qlo/indexes/inflationindex.hpp</include>
     <include>qlo/indexes/ibor/euribor.hpp</include>
     <include>qlo/indexes/ibor/libor.hpp</include>
     <include>qlo/indexes/ibor/non_libor.hpp</include>
@@ -26,10 +30,13 @@
     <include>qlo/indexes/swap/liborswap.hpp</include>
     <include>qlo/indexes/swap/isdafixaswap.hpp</include>
     <include>qlo/termstructures.hpp</include>
+    <include>qlo/inflationtermstructure.hpp</include>
+
     <include>qlo/handleimpl.hpp</include>
     <include>qlo/timeseries.hpp</include>
 
     <include>ql/termstructures/yieldtermstructure.hpp</include>
+    <include>ql/termstructures/inflationtermstructure.hpp</include>
     <include>ql/indexes/iborindex.hpp</include>
     <include>ql/indexes/inflationindex.hpp</include>
     <include>ql/experimental/coupons/proxyibor.hpp</include>

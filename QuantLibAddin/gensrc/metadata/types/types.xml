@@ -17,36 +17,38 @@
     <DataType defaultSuperType='enumeration'>QuantLib::Duration::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::EndCriteria::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Frequency</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLib::Futures::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::GFunctionFactory::YieldCurveModel</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLib::MixedInterpolation::Behavior</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Month</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Option::Type</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLib::OvernightIndexedSwap::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Pillar::Choice</DataType>
-    <DataType defaultSuperType='enumeration'>QuantLib::VolatilityType</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Position::Type</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLib::Region</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Replication::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::SalvagingAlgorithm::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::SensitivityAnalysis</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Settlement::Type</DataType>
-    <DataType defaultSuperType='enumeration'>QuantLib::OvernightIndexedSwap::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::VanillaSwap::Type</DataType>
-    <DataType defaultSuperType='enumeration'>QuantLib::Futures::Type</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLib::VolatilityType</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Weekday</DataType>
-    <DataType defaultSuperType='enumeration'>QuantLib::MixedInterpolation::Behavior</DataType>
-    <DataType defaultSuperType='enumeration'>QuantLibAddin::RateHelper::DepoInclusionCriteria</DataType>
-    <DataType defaultSuperType='enumeration'>QuantLibAddin::SwapIndex::FixingType</DataType>
+
     <DataType defaultSuperType='enumeration'>QuantLibAddin::InterpolatedYieldCurve::Interpolator</DataType>
     <DataType defaultSuperType='enumeration'>QuantLibAddin::InterpolatedYieldCurve::Traits</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLibAddin::RateHelper::DepoInclusionCriteria</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLibAddin::SwapIndex::FixingType</DataType>
     <!--RL ADD 2010-07-22-->
     <DataType defaultSuperType='enumeration'>QuantLib::Protection::Side</DataType>
 
     <DataType defaultSuperType='handleToLib'>QuantLib::OptionletVolatilityStructure</DataType>
 
     <DataType defaultSuperType='implicitConversion'>QuantLib::DiscountFactor</DataType>
+    <DataType defaultSuperType='implicitConversion'>QuantLib::Probability</DataType>
     <DataType defaultSuperType='implicitConversion'>QuantLib::Rate</DataType>
     <DataType defaultSuperType='implicitConversion'>QuantLib::Spread</DataType>
     <DataType defaultSuperType='implicitConversion'>QuantLib::Time</DataType>
     <DataType defaultSuperType='implicitConversion'>QuantLib::Volatility</DataType>
-    <DataType defaultSuperType='implicitConversion'>QuantLib::Probability</DataType>
 
     <DataType defaultSuperType='libraryClass'>QuantLib::AbcdAtmVolCurve</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::AbcdCalibration</DataType>
@@ -63,33 +65,33 @@
     <DataType defaultSuperType='libraryClass'>QuantLib::BlackVolTermStructure</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Bond</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::BTP</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::RendistatoBasket</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::RendistatoCalculator</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CMSwapCurveState</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletAlphaFormCalibration</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletCalibration</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletMaxHomogeneityCalibration</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletOriginalCalibration</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CalibratedModel</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CalibrationHelper</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CapFloor</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CapFloorTermVolCurve</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CapFloorTermVolSurface</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CapFloorTermVolatilityStructure</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CapsStripper</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CdsOption</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CmsCouponPricer</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CmsMarket</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CmsMarketCalibration</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CMSwapCurveState</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Constraint</DataType>
     <DataType defaultSuperType='objectClass'>QuantLib::CorrelationTermStructure</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CoterminalSwapCurveState</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CovarianceDecomposition</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CreditDefaultSwap</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletAlphaFormCalibration</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletCalibration</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletMaxHomogeneityCalibration</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::CTSMMCapletOriginalCalibration</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CubicInterpolation</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::CurveState</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::DefaultLossModel</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::DigitalReplication</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::EndCriteria</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Eonia</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::OvernightIndex</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::EuropeanExercise</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::EvolutionDescription</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Exercise</DataType>
@@ -123,12 +125,15 @@
     <DataType defaultSuperType='libraryClass'>QuantLib::MultiProductComposite</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::NumericHaganPricer</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::NthToDefault</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::OISRateHelper</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::OneAssetOption</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::OneFactorAffineModel</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::OptimizationMethod</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::OptionletStripper1</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::OptionletStripper2</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::OptionletStripper</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::OvernightIndex</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::OvernightIndexedSwap</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Payoff</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::PercentageStrikePayoff</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::PiecewiseConstantAbcdVariance</DataType>
@@ -139,8 +144,10 @@
     <DataType defaultSuperType='libraryClass'>QuantLib::RangeAccrualFloatersCoupon</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::RangeAccrualPricer</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::RateHelper</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::SABRInterpolation</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::RendistatoBasket</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::RendistatoCalculator</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SabrInterpolatedSmileSection</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::SABRInterpolation</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SabrVolSurface</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Schedule</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SequenceStatistics</DataType>
@@ -154,26 +161,23 @@
     <DataType defaultSuperType='libraryClass'>QuantLib::Swap</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SwapFromFRACorrelationStructure</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SwapIndex</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::OISRateHelper</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SwapRateHelper</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Swaption</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SwaptionHelper</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CalibrationHelper</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SymmetricSchurDecomposition</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::SyntheticCDO</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::TimeHomogeneousForwardCorrelation</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::TimeSeriesDef</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::TypePayoff</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::OvernightIndexedSwap</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::VanillaSwap</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Vasicek</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::VolatilityTermStructure</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CreditDefaultSwap</DataType>
-    <DataType defaultSuperType='libraryClass'>QuantLib::CdsOption</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::Basket</DataType>
     <DataType defaultSuperType='objectClass'>QuantLibAddin::Basket</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::GaussianDefProbLM</DataType>
     <DataType defaultSuperType='libraryClass'>QuantLib::TDefProbLM</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::YoYInflationIndex</DataType>
+    <DataType defaultSuperType='libraryClass'>QuantLib::ZeroInflationIndex</DataType>
     <!--RL ADD 2010-07-22-->
     <DataType defaultSuperType='libraryClass'>QuantLib::DefaultProbabilityHelper</DataType>
     <!--RL ADD 2010-07-22-->
@@ -191,6 +195,8 @@
 
     <DataType defaultSuperType='libraryTermStructure'>QuantLib::TermStructure</DataType>
     <DataType defaultSuperType='libraryTermStructure'>QuantLib::YieldTermStructure</DataType>
+    <DataType defaultSuperType='libraryTermStructure'>QuantLib::YoYInflationTermStructure</DataType>
+    <DataType defaultSuperType='libraryTermStructure'>QuantLib::ZeroInflationTermStructure</DataType>
     <!--RL ADD 2010-07-22-->
     <DataType defaultSuperType='libraryTermStructure'>QuantLib::DefaultProbabilityTermStructure</DataType>
     <DataType defaultSuperType='libraryTermStructure'>QuantLib::SwaptionVolatilityStructure</DataType>

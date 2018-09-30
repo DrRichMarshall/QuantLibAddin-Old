@@ -1,10 +1,6 @@
 /* -*- mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 
 /*
- Copyright (C) 2006, 2007 Ferdinando Ametrano
- Copyright (C) 2006 Katiuscia Manzoni
- Copyright (C) 2005 Eric Ehlers
- Copyright (C) 2005 Plamen Neykov
  Copyright (C) 2018 Richard Marshall
 
  This file is part of QuantLib, a free-software/open-source library
@@ -21,33 +17,20 @@
  FOR A PARTICULAR PURPOSE.  See the license for more details.
 */
 
-#ifndef qla_index_hpp
-#define qla_index_hpp
+#ifndef qla_inflationtermstructure_hpp
+#define qla_inflationtermstructure_hpp
 
-#include <oh/libraryobject.hpp>
+#include <qlo/termstructures.hpp>
 
-#include <ql/types.hpp>
+#include <ql/termstructures/inflation/piecewisezeroinflationcurve.hpp>
+#include <ql/termstructures/inflation/piecewiseyoyinflationcurve.hpp>
 
 namespace QuantLib {
-    class Date;
-    class Index;
+	// empty
 }
 
 namespace QuantLibAddin {
-
-    class Index : public ObjectHandler::LibraryObject<QuantLib::Index> {
-      public:
-        void addFixings(const std::vector<QuantLib::Date>& dates,
-                        const std::vector<QuantLib::Real>& values,
-                        bool forceOverwrite, bool updateValuObject = true);
-      public:
-        OH_LIB_CTOR(Index, QuantLib::Index);
-    };
-
-	//! Base class for all interest rate indexes,
-	OH_OBJ_CLASS(InterestRateIndex, Index);
-	//! Base class for all inflation indexes,
-	OH_OBJ_CLASS(InflationIndex, Index);
+	// empty
 }
 
 #endif

@@ -1760,5 +1760,8 @@
     <ClInclude Include="qlo\indexes\inflationindex.hpp">
       <Filter>indexes</Filter>
     </ClInclude>
+    <ClInclude Include="qlo\inflationtermstructure.hpp">
+      <Filter>TermStructures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

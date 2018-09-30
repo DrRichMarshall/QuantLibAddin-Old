@@ -23,6 +23,7 @@ FOR A PARTICULAR PURPOSE.  See the license for more details.
 
 
 #include <qlo/indexes/inflationindex.hpp>
+
 #include <ql/indexes/inflationindex.hpp>
 
 

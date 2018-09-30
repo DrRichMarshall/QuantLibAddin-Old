@@ -25,6 +25,7 @@ FOR A PARTICULAR PURPOSE.  See the license for more details.
 #define qla_inflation_index_hpp
 
 #include <qlo/index.hpp>
+
 #include <ql/indexes/inflationindex.hpp>
 
 

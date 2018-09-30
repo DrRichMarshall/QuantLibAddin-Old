@@ -727,6 +727,7 @@
     <ClInclude Include="qlo\enumerations\factories\termstructuresfactory.hpp" />
     <ClInclude Include="qlo\indexes\ibor\non_libor.hpp" />
     <ClInclude Include="qlo\indexes\inflationindex.hpp" />
+    <ClInclude Include="qlo\inflationtermstructure.hpp" />
     <ClInclude Include="qlo\models.hpp" />
     <ClInclude Include="qlo\serialization\create\create_calibrationhelpers.hpp" />
     <ClInclude Include="qlo\serialization\register\serialization_calibrationhelpers.hpp" />

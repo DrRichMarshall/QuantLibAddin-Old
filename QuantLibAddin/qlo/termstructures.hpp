@@ -5,6 +5,7 @@
  Copyright (C) 2006, 2007, 2009, 2010 Ferdinando Ametrano
  Copyright (C) 2005 Plamen Neykov
  Copyright (C) 2005 Aurelien Chanudet
+ Copyright (C) 2018 Richard Marshall
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -29,36 +30,33 @@ namespace QuantLib {
 
     class OptionletVolatilityStructure;
     class CapFloorTermVolatilityStructure;
-
     class SwaptionVolatilityStructure;
-
     class DefaultProbabilityTermStructure;
-
     class InflationTermStructure;
-
     class VolatilityTermStructure;
-
     class YieldTermStructure;
 
 }
 
 namespace QuantLibAddin {
      
-    OH_OBJ_CLASS(TermStructure, Extrapolator);
-        OH_OBJ_CLASS(YieldTermStructure,              TermStructure);
-        OH_OBJ_CLASS(DefaultProbabilityTermStructure, TermStructure);
-        OH_OBJ_CLASS(CorrelationTermStructure, TermStructure);
-        OH_OBJ_CLASS(InflationTermStructure,          TermStructure);
-        OH_OBJ_CLASS(VolatilityTermStructure,         TermStructure);
-            OH_OBJ_CLASS(BlackAtmVolCurve,                VolatilityTermStructure);
-                OH_OBJ_CLASS(BlackVolSurface, BlackAtmVolCurve);
-                    OH_OBJ_CLASS(InterestRateVolSurface, BlackVolSurface);
-            OH_OBJ_CLASS(BlackVolTermStructure,           VolatilityTermStructure);
-            OH_OBJ_CLASS(SwaptionVolatilityStructure,     VolatilityTermStructure);
-                OH_OBJ_CLASS(SwaptionVolatilityDiscrete, SwaptionVolatilityStructure);
-                    OH_OBJ_CLASS(SwaptionVolatilityCube, SwaptionVolatilityDiscrete);
-            OH_OBJ_CLASS(OptionletVolatilityStructure,    VolatilityTermStructure);
-            OH_OBJ_CLASS(CapFloorTermVolatilityStructure, VolatilityTermStructure);
+	OH_OBJ_CLASS(TermStructure,						Extrapolator);
+	OH_OBJ_CLASS(YieldTermStructure,				TermStructure);
+	OH_OBJ_CLASS(DefaultProbabilityTermStructure,	TermStructure);
+	OH_OBJ_CLASS(CorrelationTermStructure,			TermStructure);
+	OH_OBJ_CLASS(InflationTermStructure,			TermStructure);
+	OH_OBJ_CLASS(ZeroInflationTermStructure,		InflationTermStructure);
+	OH_OBJ_CLASS(YoYInflationTermStructure,			InflationTermStructure);
+	OH_OBJ_CLASS(VolatilityTermStructure,			TermStructure);
+	OH_OBJ_CLASS(BlackAtmVolCurve,					VolatilityTermStructure);
+	OH_OBJ_CLASS(BlackVolSurface,					BlackAtmVolCurve);
+	OH_OBJ_CLASS(InterestRateVolSurface,			BlackVolSurface);
+	OH_OBJ_CLASS(BlackVolTermStructure,				VolatilityTermStructure);
+	OH_OBJ_CLASS(SwaptionVolatilityStructure,		VolatilityTermStructure);
+	OH_OBJ_CLASS(SwaptionVolatilityDiscrete,		SwaptionVolatilityStructure);
+	OH_OBJ_CLASS(SwaptionVolatilityCube,			SwaptionVolatilityDiscrete);
+	OH_OBJ_CLASS(OptionletVolatilityStructure,		VolatilityTermStructure);
+	OH_OBJ_CLASS(CapFloorTermVolatilityStructure,	VolatilityTermStructure);
 }
 
 #endif

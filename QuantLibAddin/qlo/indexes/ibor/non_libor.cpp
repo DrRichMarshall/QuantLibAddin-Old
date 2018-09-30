@@ -25,8 +25,8 @@
 
 #include <ql/utilities/dataparsers.hpp>
 
-#include <boost/algorithm/string/case_conv.hpp>
-using boost::algorithm::to_upper_copy;
+//#include <boost/algorithm/string/case_conv.hpp>
+//using boost::algorithm::to_upper_copy;
 using ObjectHandler::ValueObject;
 using boost::shared_ptr;
 

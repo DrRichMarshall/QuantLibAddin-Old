@@ -27,7 +27,8 @@
 
 namespace QuantLibAddin {
 
-    OH_OBJ_CLASS(InterestRateIndex, Index);
+// base InterestRateIndex class definition moved to index.hpp
+//    OH_OBJ_CLASS(InterestRateIndex, Index);
 
 }
 
