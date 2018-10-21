@@ -22,6 +22,7 @@
 #define qla_non_libor_hpp
 
 #include <qlo/indexes/iborindex.hpp>
+
 #include <ql/indexes/ibor/bkbm.hpp>
 #include <ql/indexes/ibor/cdor.hpp>
 #include <ql/indexes/ibor/bbsw.hpp>

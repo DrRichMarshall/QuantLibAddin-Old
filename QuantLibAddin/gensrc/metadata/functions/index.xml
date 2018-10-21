@@ -5,6 +5,7 @@
   <serializationIncludes>
     <include>qlo/indexes/bmaindex.hpp</include>
     <include>qlo/indexes/inflationindex.hpp</include>
+    <include>qlo/indexes/inflationindexSpecific.hpp</include>
     <include>qlo/indexes/ibor/euribor.hpp</include>
     <include>qlo/indexes/ibor/libor.hpp</include>
     <include>qlo/indexes/ibor/non_libor.hpp</include>in
@@ -23,6 +24,7 @@
   <addinIncludes>
     <include>qlo/indexes/bmaindex.hpp</include>
     <include>qlo/indexes/inflationindex.hpp</include>
+    <include>qlo/indexes/inflationindexSpecific.hpp</include>
     <include>qlo/indexes/ibor/euribor.hpp</include>
     <include>qlo/indexes/ibor/libor.hpp</include>
     <include>qlo/indexes/ibor/non_libor.hpp</include>
@@ -822,8 +824,8 @@
 
     <!-- Inflation index interface -->
 
-    <Constructor name='qlZeroInflationIndex'>
-      <description>Builds a Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+    <Constructor name='qlInflationIndexZero'>
+      <description>Builds a generic Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
       <libraryFunction>ZeroInflationIndex</libraryFunction>
       <SupportedPlatforms>
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
@@ -869,7 +871,7 @@
             <tensorRank>scalar</tensorRank>
             <description>Index Currency.</description>
           </Parameter>
-          <Parameter name='YieldCurve' exampleValue='USDIC' default='""'>
+          <Parameter name='InflationCurve' exampleValue='USDIC' default='""'>
             <type>QuantLib::ZeroInflationTermStructure</type>
             <superType>libToHandle</superType>
             <tensorRank>scalar</tensorRank>
@@ -879,7 +881,8 @@
       </ParameterList>
     </Constructor>
 
-    <Constructor name='qlYoYInflationIndex'>
+    <Constructor name='qlInflationIndexYoY'>
+      <description>Builds a generic Year on Year Inflation Index object for use in inflation rate helpers and curve construction.</description>
       <libraryFunction>YoYInflationIndex</libraryFunction>
       <SupportedPlatforms>
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
@@ -930,7 +933,578 @@
             <tensorRank>scalar</tensorRank>
             <description>Index Currency.</description>
           </Parameter>
-          <Parameter name='YieldCurve' exampleValue='USDIC' default='""'>
+          <Parameter name='InflationCurve' exampleValue='USDIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlAuCpi'>
+      <description>Builds an Australian CPI Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>AUCPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Frequency' exampleValue='Annual'>
+            <type>QuantLib::Frequency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation index publication frequency (Annual or Quarterly).</description>
+          </Parameter>
+          <Parameter name='Revised' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the index is revised.</description>
+          </Parameter>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='AUDIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+    
+    <Constructor name='qlAuCpiYoY'>
+      <description>Builds an Australian Year on Year CPI Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYAUCPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Frequency' exampleValue='Annual'>
+            <type>QuantLib::Frequency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation index publication frequency (Annual or Quarterly).</description>
+          </Parameter>
+          <Parameter name='Revised' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the index is revised.</description>
+          </Parameter>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='AUDIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlAuCpiYoYr'>
+      <description>Builds an Australian Year on Year Inflation CPI ratio (fake) Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYAUCPIr</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Frequency' exampleValue='Annual'>
+            <type>QuantLib::Frequency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Inflation index publication frequency (Annual or Quarterly).</description>
+          </Parameter>
+          <Parameter name='Revised' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the index is revised.</description>
+          </Parameter>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='AUDIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlEuHicp'>
+      <description>Builds a European HICP Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>EUHICP</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='EURIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlEuHicpExT'>
+      <description>Builds a European HICP (ex Tobacco) Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>EUHICPXT</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='EURIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlEuHicpYoY'>
+      <description>Builds a European Year on Year HICP Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYEUHICP</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='EURIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlEuHicpExTYoY'>
+      <description>Builds a European Year on Year HICP (ex Tobacco) Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYEUHICPXT</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='EURIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlEuHicpYoYr'>
+      <description>Builds a European Year on Year HICP (ex Tobacco) Inflation ratio (fake) Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYEUHICPr</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='EURIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlFrHicp'>
+      <description>Builds a French HICP Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>FRHICP</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='FREIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlFrHicpYoY'>
+      <description>Builds a French Year on Year HICP Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYFRHICP</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='FREIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlFrHicpYoYr'>
+      <description>Builds a French Year on Year HICP Inflation ratio (fake) Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYFRHICPr</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='FREIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlUkRpi'>
+      <description>Builds a UK RPI Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>UKRPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='GBPIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlUkRpiYoY'>
+      <description>Builds a UK Year on Year RPI Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYUKRPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='GBPIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlUkRpiYoYr'>
+      <description>Builds a UK Year on Year RPI Inflation ratio (fake) Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYUKRPIr</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='GBPIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlUsCpi'>
+      <description>Builds a USA CPI Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>USCPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='USDIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlUsCpiYoY'>
+      <description>Builds a USA Year on Year CPI Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYUSCPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='USDIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlUsCpiYoYr'>
+      <description>Builds a USA Year on Year CPI Inflation ratio (fake) Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYUSCPIr</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='USDIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+
+    <Constructor name='qlZaCpi'>
+      <description>Builds a South African CPI Zero Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>ZACPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='ZARIC' default='""'>
+            <type>QuantLib::ZeroInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlZaCpiYoY'>
+      <description>Builds a South African Year on Year CPI Inflation Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYZACPI</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='ZARIC' default='""'>
+            <type>QuantLib::YoYInflationTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>forecasting InflationTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlZaCpiYoYr'>
+      <description>Builds a South African Year on Year CPI Inflation ratio (fake) Index object for use in inflation rate helpers and curve construction.</description>
+      <libraryFunction>YYZACPIr</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Calc'/-->
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Interpolated' exampleValue='TRUE'>
+            <type>bool</type>
+            <tensorRank>scalar</tensorRank>
+            <description>TRUE if the forecasted index is interpolated (act/act) within each period, FALSE if it is constant.</description>
+          </Parameter>
+          <Parameter name='InflationCurve' exampleValue='ZARIC' default='""'>
             <type>QuantLib::YoYInflationTermStructure</type>
             <superType>libToHandle</superType>
             <tensorRank>scalar</tensorRank>

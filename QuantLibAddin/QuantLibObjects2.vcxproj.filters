@@ -855,6 +855,9 @@
     <ClCompile Include="qlo\indexes\inflationindex.cpp">
       <Filter>indexes</Filter>
     </ClCompile>
+    <ClCompile Include="qlo\indexes\inflationindexSpecific.cpp">
+      <Filter>indexes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qlo\enumerations\register\register_all.hpp">
@@ -1762,6 +1765,9 @@
     </ClInclude>
     <ClInclude Include="qlo\inflationtermstructure.hpp">
       <Filter>TermStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="qlo\indexes\inflationindexSpecific.hpp">
+      <Filter>indexes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
