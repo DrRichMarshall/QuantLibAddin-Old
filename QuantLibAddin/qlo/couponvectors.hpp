@@ -5,6 +5,7 @@
  Copyright (C) 2005 Aurelien Chanudet
  Copyright (C) 2006, 2007 Cristina Duminuco
  Copyright (C) 2006 Giorgio Facchinetti
+ Copyright (C) 2018 Richard Marshall
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -27,6 +28,7 @@
 
 #include <ql/time/businessdayconvention.hpp>
 #include <ql/cashflows/replication.hpp>
+#include <ql/cashflows/overnightindexedcoupon.hpp>
 
 namespace QuantLib {
     class Schedule;
@@ -68,21 +70,36 @@ namespace QuantLibAddin {
             bool permanent);
     };
 
-    class IborLeg : public Leg {
+	class IborLeg : public Leg {
+	public:
+		IborLeg(
+			const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+			QuantLib::BusinessDayConvention paymentConvention,
+			const std::vector<QuantLib::Real>& nominals,
+			const boost::shared_ptr<QuantLib::Schedule>& schedule,
+			const std::vector<QuantLib::Natural>& fixingDays,
+			bool isInArrears,
+			const QuantLib::DayCounter& paymentDayCounter,
+			const std::vector<QuantLib::Rate>& floors,
+			const std::vector<QuantLib::Real>& gearings,
+			const boost::shared_ptr<QuantLib::IborIndex>& index,
+			const std::vector<QuantLib::Spread>& spreads,
+			const std::vector<QuantLib::Rate>& caps,
+			bool permanent);
+	};
+
+	class OvernightLeg : public Leg {
       public:
-        IborLeg(
+		  OvernightLeg(
             const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
             QuantLib::BusinessDayConvention paymentConvention,
             const std::vector<QuantLib::Real>& nominals,
             const boost::shared_ptr<QuantLib::Schedule>& schedule,
-            const std::vector<QuantLib::Natural>& fixingDays,
-            bool isInArrears,
             const QuantLib::DayCounter& paymentDayCounter,
-            const std::vector<QuantLib::Rate>& floors,
             const std::vector<QuantLib::Real>& gearings,
-            const boost::shared_ptr<QuantLib::IborIndex>& index,
+            const boost::shared_ptr<QuantLib::OvernightIndex>& index,
             const std::vector<QuantLib::Spread>& spreads,
-            const std::vector<QuantLib::Rate>& caps,
+			const QuantLib::Natural& lag,
             bool permanent);
     };
 

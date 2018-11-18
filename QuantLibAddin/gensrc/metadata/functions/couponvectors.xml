@@ -27,6 +27,7 @@
     Copyright (C) 2006, 2007 Cristina Duminuco
     Copyright (C) 2006, 2007 Giorgio Facchinetti
     Copyright (C) 2005 Aurelien Chanudet
+    Copyright (C) 2018 Richard Marshall
   </copyright>
 
   <Functions>
@@ -172,6 +173,61 @@
             <type>QuantLib::Rate</type>
             <tensorRank>vector</tensorRank>
             <description>cap strikes.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlOvernightLeg'>
+      <libraryFunction>OvernightLeg</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Cpp'/>
+        <SupportedPlatform name='Calc'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='PaymentBDC' default='"Following"'>
+            <type>QuantLib::BusinessDayConvention</type>
+            <tensorRank>scalar</tensorRank>
+            <description>payment business day convention.</description>
+          </Parameter>
+          <Parameter name='Nominals' exampleValue='1000000'>
+            <type>double</type>
+            <tensorRank>vector</tensorRank>
+            <description>Nominal amount vector.</description>
+          </Parameter>
+          <Parameter name='ScheduleID'>
+            <type>QuantLib::Schedule</type>
+            <superType>libraryClass</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>Schedule object ID.</description>
+          </Parameter>
+          <Parameter name='DayCounter' default='Act/Act'>
+            <type>QuantLib::DayCounter</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Payment DayCounter ID (Act/Act).</description>
+          </Parameter>
+          <Parameter name='Gearings' default='1.0'>
+            <type>double</type>
+            <tensorRank>vector</tensorRank>
+            <description>floating rate gearings.</description>
+          </Parameter>
+          <Parameter name='OvernightIndex'>
+            <type>QuantLib::OvernightIndex</type>
+            <tensorRank>scalar</tensorRank>
+            <description>overnight rate index Object ID.</description>
+          </Parameter>
+          <Parameter name='Spreads' default='0.0'>
+            <type>QuantLib::Spread</type>
+            <tensorRank>vector</tensorRank>
+            <description>floating rate spreads.</description>
+          </Parameter>
+          <Parameter name='Lag' default='0'>
+            <type>QuantLib::Natural</type>
+            <tensorRank>scalar</tensorRank>
+            <description>floating rate spreads.</description>
           </Parameter>
         </Parameters>
       </ParameterList>

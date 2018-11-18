@@ -7,6 +7,7 @@
  Copyright (C) 2006 Eric Ehlers
  Copyright (C) 2006 Giorgio Facchinetti
  Copyright (C) 2009 Piter Dias
+ Copyright (C) 2018 Richard Marshall
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -34,9 +35,12 @@
 #include <ql/cashflows/simplecashflow.hpp>
 #include <ql/cashflows/fixedratecoupon.hpp>
 #include <ql/cashflows/iborcoupon.hpp>
+#include <ql/cashflows/overnightindexedcoupon.hpp>
 #include <ql/cashflows/cmscoupon.hpp>
 #include <ql/cashflows/rangeaccrual.hpp>
 #include <ql/cashflows/cashflows.hpp>
+#include <ql/cashflows/overnightindexedcoupon.hpp>
+
 
 using ObjectHandler::LibraryObject;
 using ObjectHandler::Create;
@@ -123,6 +127,28 @@ namespace QuantLibAddin {
                 .withFloors(floors)
                 .inArrears(isInArrears)));
     }
+
+	OvernightLeg::OvernightLeg(const shared_ptr<ValueObject>& p,
+		QuantLib::BusinessDayConvention paymentConvention,
+		const vector<QuantLib::Real>& nominals,
+		const shared_ptr<QuantLib::Schedule>& schedule,
+		const QuantLib::DayCounter& paymentDayCounter,
+		const vector<QuantLib::Real>& gearings,
+		const shared_ptr<QuantLib::OvernightIndex>& index,
+		const vector<QuantLib::Spread>& spreads,
+		const QuantLib::Natural& lag,
+		bool permanent)
+		: Leg(p, permanent)
+	{
+		libraryObject_ = shared_ptr<QuantLib::Leg>(new
+			QuantLib::Leg(QuantLib::OvernightLeg(*schedule, index)
+				.withNotionals(nominals)
+				.withPaymentDayCounter(paymentDayCounter)
+				.withPaymentAdjustment(paymentConvention)
+				.withGearings(gearings)
+				.withSpreads(spreads)
+				.withPaymentLag(lag)));
+	}
 
     DigitalIborLeg::DigitalIborLeg(
             const shared_ptr<ValueObject>& p,
